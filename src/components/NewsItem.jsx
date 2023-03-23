@@ -18,12 +18,13 @@ export default function NewsItem({ title, description, imageURL, URL }) {
       <div className="card-content">
         <div className="media">
           <div className="media-content">
-            <p className="title is-4">{title}</p>
-            <p className="subtitle is-6">@johnsmith</p>
+            <p className="title is-5" style={{ overflow: 'hidden' }}>
+              {title}
+            </p>
           </div>
         </div>
 
-        <div className="content">
+        <div className="content is-6">
           {description ? description : 'To read more follow the link'}
         </div>
         <a href={URL} target="_blank" className="button is-info is-small">

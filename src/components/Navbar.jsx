@@ -1,10 +1,12 @@
-import React from "react";
-
-export default function NavBar() {
+function NavBar() {
   return (
-    <nav className="navbar" role="navigation" aria-label="main navigation">
+    <nav
+      className="navbar is-spaced "
+      role="navigation"
+      aria-label="main navigation"
+    >
       <div className="navbar-brand">
-        <a className="navbar-item" href="https://bulma.io">
+        <a className="navbar-item is-size-3" href="https://bulma.io">
           HeadLiner
         </a>
 
@@ -25,20 +27,20 @@ export default function NavBar() {
         <div className="navbar-start">
           <a className="navbar-item">Home</a>
 
-          <a className="navbar-item">Contacts</a>
+          <a className="navbar-item">General</a>
+          <a className="navbar-item">Entertainment</a>
+          <a className="navbar-item">Technology</a>
+          <a className="navbar-item">Health</a>
+          <a className="navbar-item">Sports</a>
+          <a className="navbar-item">Business</a>
         </div>
 
         <div className="navbar-end">
-          <div className="navbar-item">
-            <div className="buttons">
-              <a className="button is-primary">
-                <strong>Sign up</strong>
-              </a>
-              <a className="button is-light">Log in</a>
-            </div>
-          </div>
+          <div className="navbar-item"></div>
         </div>
       </div>
     </nav>
-  );
+  )
 }
+
+export default NavBar

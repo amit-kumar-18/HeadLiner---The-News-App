@@ -1,13 +1,13 @@
-import NavBar from "./components/NavBar";
-import News from "./components/News";
+import NavBar from './components/Navbar'
+import News from './components/News'
 
 function App() {
   return (
     <>
       <NavBar />
-      <News />
+      <News country="in" category="general" pageSize={10} />
     </>
-  );
+  )
 }
 
-export default App;
+export default App

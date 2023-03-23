@@ -1,0 +1,23 @@
+body {
+  background-color: #23272f;
+}
+
+.navbar,
+.navbar .navbar-item,
+.card,
+.card .title {
+  color: #fff;
+}
+
+.navbar {
+  background-color: #0d6d8c;
+}
+
+.card {
+  background-color: #374151;
+  color: #fff;
+}
+
+.card .title {
+  color: #fff;
+}
