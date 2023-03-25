@@ -1,5 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Overpass:wght@400;600&display=swap');
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background-color: #23272f;
+  font-family: 'Overpass', sans-serif;
 }
 
 .navbar,
@@ -16,8 +23,26 @@ body {
 .card {
   background-color: #374151;
   color: #fff;
+  min-height: 600px;
+  min-width: 350px;
 }
 
 .card .title {
   color: #fff;
+}
+
+.title {
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.content {
+  font-size: 0.9rem;
+  font-weight: 400;
+}
+
+.tag {
+  position: absolute;
+  top: 0;
+  right: 0;
 }

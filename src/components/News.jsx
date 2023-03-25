@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react'
+
 import NewsItem from './NewsItem'
 import Pagination from './Pagination'
 import Spinner from './Spinner'
@@ -11,7 +12,7 @@ function News({ country = 'in', category = 'general', pageSize = 10 }) {
   const [totalResults, setTotalResults] = useState(0)
 
   const getNews = async () => {
-    const URL = `https://newsapi.org/v2/top-headlines?country=in&category=${category}&apiKey=33a6b26cda9046009121cbc5c1b281c0&pageSize=${pageSize}&page=${page}`
+    const URL = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=33a6b26cda9046009121cbc5c1b281c0&pageSize=${pageSize}&page=${page}`
     setLoading(true)
     const res = await fetch(URL)
     const data = await res.json()
@@ -26,7 +27,7 @@ function News({ country = 'in', category = 'general', pageSize = 10 }) {
 
   return (
     <main
-      className=" section columns is-multiline is-vcentered "
+      className=' section columns is-multiline is-vcentered '
       style={{
         gap: '1rem',
         justifyContent: 'space-evenly',
@@ -43,10 +44,19 @@ function News({ country = 'in', category = 'general', pageSize = 10 }) {
               description={article.description}
               imageURL={article.urlToImage}
               URL={article.url}
+              author={article.author}
+              date={article.publishedAt}
+              source={article.source.name}
             />
           )
         })}
-      <Pagination page={page} setPage={setPage} getNews={getNews} />
+      <Pagination
+        page={page}
+        setPage={setPage}
+        getNews={getNews}
+        totalResults={totalResults}
+        pageSize={pageSize}
+      />
     </main>
   )
 }
