@@ -2,9 +2,9 @@ import { Link } from 'react-router-dom'
 
 function NavBar() {
   return (
-    <nav className='navbar is-spaced ' role='navigation' aria-label='main navigation'>
+    <nav className='navbar px-6 py-1 ' role='navigation' aria-label='main navigation'>
       <div className='navbar-brand'>
-        <a className='navbar-item is-size-3' href='/'>
+        <a className='navbar-item is-size-3' href='/' id='logo'>
           HeadLiner
         </a>
 

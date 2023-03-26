@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import NavBar from './components/Navbar'
 import News from './components/News'
+import ScrollBtn from './components/ScrollBtn'
 
 function App() {
   const country = 'in'
-  const pageSize = 10
+  const pageSize = 12
 
   return (
     <>
@@ -56,6 +57,8 @@ function App() {
             }
           />
         </Routes>
+
+        <ScrollBtn />
       </BrowserRouter>
     </>
   )

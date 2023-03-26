@@ -18,8 +18,10 @@ export default function NewsItem({ title, description, imageURL, URL, author, da
           </div>
         </div>
 
-        <div className='content'>{description ? description : 'To read more follow the link'}</div>
-        <p className='my-4 has-text-info'>
+        <div className='content'>
+          {description ? description.slice(0, 160) + '...' : 'To read more follow the link'}
+        </div>
+        <p className='my-4 has-text-info is-size-7'>
           {author ? `By ${author} on` : null} {new Date(date).toUTCString()}
         </p>
         <span className='tag is-danger '>{source}</span>

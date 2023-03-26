@@ -25,38 +25,54 @@ function News({ country = 'in', category = 'general', pageSize = 10 }) {
     getNews()
   }, [page])
 
+  const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1, string.length)
+
+  document.title = `HeadLiner - ${capitalize(category)}`
+
   return (
-    <main
-      className=' section columns is-multiline is-vcentered '
-      style={{
-        gap: '1rem',
-        justifyContent: 'space-evenly',
-        minHeight: '90vh',
-      }}
-    >
-      {loading && <Spinner />}
-      {!loading &&
-        articles.map((article) => {
-          return (
-            <NewsItem
-              key={article.url}
-              title={article.title}
-              description={article.description}
-              imageURL={article.urlToImage}
-              URL={article.url}
-              author={article.author}
-              date={article.publishedAt}
-              source={article.source.name}
-            />
-          )
-        })}
-      <Pagination
-        page={page}
-        setPage={setPage}
-        getNews={getNews}
-        totalResults={totalResults}
-        pageSize={pageSize}
-      />
+    <main>
+      <section className='top-heading'>
+        <h1>
+          {'HeadLiner - '}
+          {category == 'general' ? 'Top Headlines' : `Top ${capitalize(category)} Headlines`}
+        </h1>
+      </section>
+
+      <section
+        className='main px-6 columns is-multiline is-vcentered '
+        style={{
+          gap: '1rem',
+          justifyContent: 'space-evenly',
+          minHeight: '90vh',
+        }}
+      >
+        {loading && <Spinner />}
+        {!loading &&
+          articles.map((article) => {
+            return (
+              <NewsItem
+                key={article.url}
+                title={article.title}
+                description={article.description}
+                imageURL={article.urlToImage}
+                URL={article.url}
+                author={article.author}
+                date={article.publishedAt}
+                source={article.source.name}
+              />
+            )
+          })}
+      </section>
+
+      <section className='pagination'>
+        <Pagination
+          page={page}
+          setPage={setPage}
+          getNews={getNews}
+          totalResults={totalResults}
+          pageSize={pageSize}
+        />
+      </section>
     </main>
   )
 }
