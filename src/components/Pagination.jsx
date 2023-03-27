@@ -36,7 +36,7 @@ const Pagination = ({ page, setPage, totalResults, pageSize }) => {
       >
         Next page
       </a>
-      <ul className='pagination-list'>
+      <ul className='pagination-list '>
         <li>
           <a
             className={`pagination-link ${page == 1 ? 'is-current' : null}`}

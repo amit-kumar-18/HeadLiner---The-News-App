@@ -5,13 +5,14 @@ import Pagination from './Pagination'
 import Spinner from './Spinner'
 import PropTypes from 'prop-types'
 
-function News({ country = 'in', category = 'general', pageSize = 10 }) {
+function News({ country = 'in', category = 'general', pageSize = 10, setTopLoading }) {
   const [articles, setArticle] = useState([])
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(false)
   const [totalResults, setTotalResults] = useState(0)
 
   const getNews = async () => {
+    setTopLoading(10)
     const URL = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=33a6b26cda9046009121cbc5c1b281c0&pageSize=${pageSize}&page=${page}`
     setLoading(true)
     const res = await fetch(URL)
@@ -19,6 +20,7 @@ function News({ country = 'in', category = 'general', pageSize = 10 }) {
     setArticle(data.articles)
     setTotalResults(data.totalResults)
     setLoading(false)
+    setTopLoading(100)
   }
 
   useEffect(() => {
@@ -39,7 +41,7 @@ function News({ country = 'in', category = 'general', pageSize = 10 }) {
       </section>
 
       <section
-        className='main px-6 columns is-multiline is-vcentered '
+        className='main  columns is-multiline is-vcentered '
         style={{
           gap: '1rem',
           justifyContent: 'space-evenly',

@@ -1,4 +1,7 @@
+import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import LoadingBar from 'react-top-loading-bar'
+
 import NavBar from './components/Navbar'
 import News from './components/News'
 import ScrollBtn from './components/ScrollBtn'
@@ -6,10 +9,12 @@ import ScrollBtn from './components/ScrollBtn'
 function App() {
   const country = 'in'
   const pageSize = 12
+  const [topLoading, setTopLoading] = useState(10)
 
   return (
     <>
       <BrowserRouter>
+        <LoadingBar color='#f11946' height={3} progress={topLoading} />
         <NavBar />
 
         <Routes>
@@ -17,7 +22,13 @@ function App() {
             exact
             path='/'
             element={
-              <News key='general' country={country} category='general' pageSize={pageSize} />
+              <News
+                setTopLoading={setTopLoading}
+                key='general'
+                country={country}
+                category='general'
+                pageSize={pageSize}
+              />
             }
           />
           <Route
@@ -25,6 +36,7 @@ function App() {
             path='/entertainment'
             element={
               <News
+                setTopLoading={setTopLoading}
                 key='entertainment'
                 country={country}
                 category='entertainment'
@@ -36,24 +48,52 @@ function App() {
             exact
             path='/technology'
             element={
-              <News key='technology' country={country} category='technology' pageSize={pageSize} />
+              <News
+                setTopLoading={setTopLoading}
+                key='technology'
+                country={country}
+                category='technology'
+                pageSize={pageSize}
+              />
             }
           />
           <Route
             exact
             path='/health'
-            element={<News key='health' country={country} category='health' pageSize={pageSize} />}
+            element={
+              <News
+                setTopLoading={setTopLoading}
+                key='health'
+                country={country}
+                category='health'
+                pageSize={pageSize}
+              />
+            }
           />
           <Route
             exact
             path='/sports'
-            element={<News key='sports' country={country} category='sports' pageSize={pageSize} />}
+            element={
+              <News
+                setTopLoading={setTopLoading}
+                key='sports'
+                country={country}
+                category='sports'
+                pageSize={pageSize}
+              />
+            }
           />
           <Route
             exact
             path='/business'
             element={
-              <News key='business' country={country} category='business' pageSize={pageSize} />
+              <News
+                setTopLoading={setTopLoading}
+                key='business'
+                country={country}
+                category='business'
+                pageSize={pageSize}
+              />
             }
           />
         </Routes>

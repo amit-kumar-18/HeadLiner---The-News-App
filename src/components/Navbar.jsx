@@ -1,8 +1,10 @@
 import { Link } from 'react-router-dom'
 
 function NavBar() {
+  const handleNavbarMenu = () => {}
+
   return (
-    <nav className='navbar px-6 py-1 ' role='navigation' aria-label='main navigation'>
+    <nav className='navbar ' role='navigation' aria-label='main navigation'>
       <div className='navbar-brand'>
         <a className='navbar-item is-size-3' href='/' id='logo'>
           HeadLiner
@@ -10,10 +12,11 @@ function NavBar() {
 
         <a
           role='button'
-          className='navbar-burger'
+          className='navbar-burger has-text-white '
           aria-label='menu'
           aria-expanded='false'
           data-target='navbarBasicExample'
+          onClick={handleNavbarMenu}
         >
           <span aria-hidden='true'></span>
           <span aria-hidden='true'></span>
