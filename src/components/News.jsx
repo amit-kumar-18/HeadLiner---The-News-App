@@ -5,7 +5,7 @@ import Pagination from './Pagination'
 import Spinner from './Spinner'
 import PropTypes from 'prop-types'
 
-function News({ country = 'in', category = 'general', pageSize = 10, setTopLoading }) {
+function News({ country = 'in', category = 'general', pageSize = 10, setTopLoading, apiKey }) {
   const [articles, setArticle] = useState([])
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(false)
@@ -13,7 +13,7 @@ function News({ country = 'in', category = 'general', pageSize = 10, setTopLoadi
 
   const getNews = async () => {
     setTopLoading(10)
-    const URL = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=33a6b26cda9046009121cbc5c1b281c0&pageSize=${pageSize}&page=${page}`
+    const URL = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&pageSize=${pageSize}&page=${page}`
     setLoading(true)
     const res = await fetch(URL)
     const data = await res.json()
@@ -29,7 +29,7 @@ function News({ country = 'in', category = 'general', pageSize = 10, setTopLoadi
 
   const capitalize = (string) => string.charAt(0).toUpperCase() + string.slice(1, string.length)
 
-  document.title = `HeadLiner - ${capitalize(category)}`
+  document.title = `HeadLiner | ${category == 'general' ? 'Home' : capitalize(category)}`
 
   return (
     <main>

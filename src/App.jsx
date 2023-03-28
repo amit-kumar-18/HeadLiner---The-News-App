@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LoadingBar from 'react-top-loading-bar'
+import Footer from './components/Footer'
 
 import NavBar from './components/Navbar'
 import News from './components/News'
@@ -10,6 +11,7 @@ function App() {
   const country = 'in'
   const pageSize = 12
   const [topLoading, setTopLoading] = useState(10)
+  const apiKey = import.meta.env.VITE_apiKey
 
   return (
     <>
@@ -23,6 +25,7 @@ function App() {
             path='/'
             element={
               <News
+                apiKey={apiKey}
                 setTopLoading={setTopLoading}
                 key='general'
                 country={country}
@@ -36,6 +39,7 @@ function App() {
             path='/entertainment'
             element={
               <News
+                apiKey={apiKey}
                 setTopLoading={setTopLoading}
                 key='entertainment'
                 country={country}
@@ -49,6 +53,7 @@ function App() {
             path='/technology'
             element={
               <News
+                apiKey={apiKey}
                 setTopLoading={setTopLoading}
                 key='technology'
                 country={country}
@@ -62,6 +67,7 @@ function App() {
             path='/health'
             element={
               <News
+                apiKey={apiKey}
                 setTopLoading={setTopLoading}
                 key='health'
                 country={country}
@@ -75,6 +81,7 @@ function App() {
             path='/sports'
             element={
               <News
+                apiKey={apiKey}
                 setTopLoading={setTopLoading}
                 key='sports'
                 country={country}
@@ -88,6 +95,7 @@ function App() {
             path='/business'
             element={
               <News
+                apiKey={apiKey}
                 setTopLoading={setTopLoading}
                 key='business'
                 country={country}
@@ -99,6 +107,7 @@ function App() {
         </Routes>
 
         <ScrollBtn />
+        <Footer />
       </BrowserRouter>
     </>
   )

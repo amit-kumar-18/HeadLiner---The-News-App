@@ -15,6 +15,11 @@ const Pagination = ({ page, setPage, totalResults, pageSize }) => {
     }
   }
 
+  const goToPage = (page) => {
+    setPage(page)
+    window.scrollTo(top)
+  }
+
   return (
     <nav
       className='pagination is-rounded is-centered is-fixed-bottom is-align-self-flex-end '
@@ -41,6 +46,7 @@ const Pagination = ({ page, setPage, totalResults, pageSize }) => {
           <a
             className={`pagination-link ${page == 1 ? 'is-current' : null}`}
             aria-label='Goto page 1'
+            onClick={() => goToPage(1)}
           >
             1
           </a>
@@ -52,6 +58,7 @@ const Pagination = ({ page, setPage, totalResults, pageSize }) => {
           <a
             className={`pagination-link ${page !== maxPage && page !== 1 ? 'is-current' : null}`}
             aria-label={'goto page' + midPage}
+            onClick={() => goToPage(midPage)}
           >
             {page !== 1 && page !== maxPage ? page : midPage}
           </a>
@@ -64,6 +71,7 @@ const Pagination = ({ page, setPage, totalResults, pageSize }) => {
           <a
             className={`pagination-link ${page == maxPage ? 'is-current' : null}`}
             aria-label={'goto page' + maxPage}
+            onClick={() => goToPage(maxPage)}
           >
             {maxPage}
           </a>

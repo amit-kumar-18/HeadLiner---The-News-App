@@ -1,13 +1,15 @@
 import { Link } from 'react-router-dom'
+import logo from '../assets/images/logo.png'
 
 function NavBar() {
   const handleNavbarMenu = () => {}
 
   return (
-    <nav className='navbar ' role='navigation' aria-label='main navigation'>
+    <nav className='navbar is-fixed-top ' role='navigation' aria-label='main navigation'>
       <div className='navbar-brand'>
-        <a className='navbar-item is-size-3' href='/' id='logo'>
-          HeadLiner
+        <a className='navbar-item is-size-3 ' href='/' id='logo'>
+          <img src={logo} alt='Headline Logo' className='logo__icon' />
+          <span className='logo__text'>HeadLiner</span>
         </a>
 
         <a
