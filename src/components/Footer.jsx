@@ -1,13 +1,26 @@
 const Footer = () => {
   return (
     <footer className='footer'>
-      <div className='content has-text-centered'>
-        <p>
-          <strong>Bulma</strong> by <a href='https://jgthms.com'>Jeremy Thomas</a>. The source code
-          is licensed
-          <a href='http://opensource.org/licenses/mit-license.php'>MIT</a>. The website content is
-          licensed <a href='http://creativecommons.org/licenses/by-nc-sa/4.0/'>CC BY NC SA 4.0</a>.
-        </p>
+      <div className='content '>
+        <h1 className='logo__text has-text-white has-text-centered'>HeadLiner</h1>
+        <div className='footer__links'>
+          <p className='is-size-5'>
+            HeadLiner is a React based News Application which fetches news using News-Catchers API.
+            You can read news of multiple genres like Word Affaires, Entertainment, Sports, Politics
+            and Business.
+          </p>
+          <ul>
+            <li>
+              <a href=''>GitHub</a>
+            </li>
+            <li>
+              <a href=''>LinkedIn</a>
+            </li>
+            <li>
+              <a href=''>Email</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </footer>
   )

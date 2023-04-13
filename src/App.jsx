@@ -8,7 +8,7 @@ import News from './components/News'
 import ScrollBtn from './components/ScrollBtn'
 
 function App() {
-  const country = 'in'
+  const country = 'IN'
   const pageSize = 12
   const [topLoading, setTopLoading] = useState(10)
   const apiKey = import.meta.env.VITE_apiKey
@@ -29,7 +29,7 @@ function App() {
                 setTopLoading={setTopLoading}
                 key='general'
                 country={country}
-                category='general'
+                category='world'
                 pageSize={pageSize}
               />
             }
@@ -50,42 +50,42 @@ function App() {
           />
           <Route
             exact
-            path='/technology'
+            path='/tech'
             element={
               <News
                 apiKey={apiKey}
                 setTopLoading={setTopLoading}
-                key='technology'
+                key='tech'
                 country={country}
-                category='technology'
+                category='tech'
                 pageSize={pageSize}
               />
             }
           />
           <Route
             exact
-            path='/health'
+            path='/politics'
             element={
               <News
                 apiKey={apiKey}
                 setTopLoading={setTopLoading}
-                key='health'
+                key='politics'
                 country={country}
-                category='health'
+                category='politics'
                 pageSize={pageSize}
               />
             }
           />
           <Route
             exact
-            path='/sports'
+            path='/sport'
             element={
               <News
                 apiKey={apiKey}
                 setTopLoading={setTopLoading}
-                key='sports'
+                key='sport'
                 country={country}
-                category='sports'
+                category='sport'
                 pageSize={pageSize}
               />
             }

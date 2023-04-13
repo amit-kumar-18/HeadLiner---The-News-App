@@ -5,7 +5,7 @@ import Pagination from './Pagination'
 import Spinner from './Spinner'
 import PropTypes from 'prop-types'
 
-function News({ country = 'in', category = 'general', pageSize = 10, setTopLoading, apiKey }) {
+function News({ country = 'IN', category = 'world', pageSize = 10, setTopLoading, apiKey }) {
   const [articles, setArticle] = useState([])
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(false)
@@ -13,12 +13,15 @@ function News({ country = 'in', category = 'general', pageSize = 10, setTopLoadi
 
   const getNews = async () => {
     setTopLoading(10)
-    const URL = `https://newsapi.org/v2/top-headlines?country=${country}&category=${category}&apiKey=${apiKey}&pageSize=${pageSize}&page=${page}`
-    setLoading(true)
-    const res = await fetch(URL)
+    const url = `https://api.newscatcherapi.com/v2/latest_headlines?countries=${country}&lang=en&page_size=${pageSize}&page=${page}&topic=${category}`
+    const res = await fetch(url, {
+      headers: {
+        'x-api-key': apiKey,
+      },
+    })
     const data = await res.json()
     setArticle(data.articles)
-    setTotalResults(data.totalResults)
+    setTotalResults(data.total_hits)
     setLoading(false)
     setTopLoading(100)
   }
@@ -53,14 +56,14 @@ function News({ country = 'in', category = 'general', pageSize = 10, setTopLoadi
           articles.map((article) => {
             return (
               <NewsItem
-                key={article.url}
+                key={article.link}
                 title={article.title}
-                description={article.description}
-                imageURL={article.urlToImage}
-                URL={article.url}
+                description={article.summary}
+                imageURL={article.media}
+                URL={article.link}
                 author={article.author}
-                date={article.publishedAt}
-                source={article.source.name}
+                date={article.published_date}
+                source={article.rights}
               />
             )
           })}

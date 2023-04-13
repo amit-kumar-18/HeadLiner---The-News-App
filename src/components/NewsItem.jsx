@@ -6,7 +6,7 @@ export default function NewsItem({ title, description, imageURL, URL, author, da
     <div className='card column  is-one-third-tablet is-3-desktop is-relative'>
       <div className='card-image'>
         <figure className='image is-4by3'>
-          <img src={imageURL ? imageURL : defaultImg} alt='Placeholder image' />
+          <img src={imageURL ? imageURL : defaultImg} alt={title} />
         </figure>
       </div>
       <div className='card-content'>

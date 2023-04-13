@@ -1,6 +1,6 @@
 const Pagination = ({ page, setPage, totalResults, pageSize }) => {
   const maxPage = Math.ceil(totalResults / pageSize)
-  const midPage = maxPage / 2
+  const midPage = Math.ceil(maxPage / 2)
 
   const handlePrevious = () => {
     if (page > 1) {

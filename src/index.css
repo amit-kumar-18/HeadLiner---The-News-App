@@ -9,6 +9,10 @@ body {
   font-family: 'Overpass', sans-serif;
 }
 
+main {
+  overflow: hidden;
+}
+
 .navbar,
 .navbar .navbar-item,
 .card,
@@ -36,11 +40,15 @@ body {
   transform: scale(1.5);
 }
 
+.navbar-menu {
+  background-color: inherit;
+}
+
 .top-heading {
   text-align: center;
   color: #fff;
-  font-size: 2.5rem;
-  margin-block: 1.5rem;
+  font-size: 2rem;
+  margin-block: 2rem;
 }
 
 .main {
@@ -76,7 +84,7 @@ body {
 }
 
 .pagination {
-  padding: 3rem 3rem 1rem 3rem;
+  padding: 1rem 3rem;
 }
 
 .pagination-link {
@@ -122,6 +130,31 @@ body {
   color: #fff;
 }
 
+.footer .content {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: 400px 800px;
+  align-items: center;
+}
+
+.footer .footer__links {
+  display: flex;
+  flex-direction: column;
+}
+
+.footer ul {
+  list-style-type: none;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.footer ul li a:visited {
+  color: #fff;
+}
+
 @media (max-width: 804px) {
   .navbar {
     padding: 0;
@@ -132,5 +165,10 @@ body {
   }
   .pagination-list {
     display: none;
+  }
+
+  .footer .content {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
   }
 }

@@ -2,7 +2,20 @@ import { Link } from 'react-router-dom'
 import logo from '../assets/images/logo.png'
 
 function NavBar() {
-  const handleNavbarMenu = () => {}
+  const navbarItems = document.querySelectorAll('.navbar-item')
+  const navbarMenu = document.getElementById('navbarMenu')
+  const navbarBurger = document.getElementById('navbarBurger')
+  navbarItems.forEach((navItem) => {
+    navItem.addEventListener('click', () => {
+      document.body.scrollIntoView()
+      handleNavbarMenu()
+    })
+  })
+
+  const handleNavbarMenu = () => {
+    navbarBurger.classList.toggle('is-active')
+    navbarMenu.classList.toggle('is-active')
+  }
 
   return (
     <nav className='navbar is-fixed-top ' role='navigation' aria-label='main navigation'>
@@ -15,9 +28,10 @@ function NavBar() {
         <a
           role='button'
           className='navbar-burger has-text-white '
+          id='navbarBurger'
           aria-label='menu'
           aria-expanded='false'
-          data-target='navbarBasicExample'
+          data-target='navbarMenu'
           onClick={handleNavbarMenu}
         >
           <span aria-hidden='true'></span>
@@ -26,7 +40,7 @@ function NavBar() {
         </a>
       </div>
 
-      <div id='navbarBasicExample' className='navbar-menu'>
+      <div id='navbarMenu' className='navbar-menu'>
         <div className='navbar-start'>
           <Link to={'/'} className='navbar-item'>
             Home
@@ -35,22 +49,18 @@ function NavBar() {
           <Link to={'/entertainment'} className='navbar-item'>
             Entertainment
           </Link>
-          <Link to={'/technology'} className='navbar-item'>
-            Technology
+          <Link to={'/tech'} className='navbar-item'>
+            Tech
           </Link>
-          <Link to={'/health'} className='navbar-item'>
-            Health
+          <Link to={'/politics'} className='navbar-item'>
+            Politics
           </Link>
-          <Link to={'/sports'} className='navbar-item'>
+          <Link to={'/sport'} className='navbar-item'>
             Sports
           </Link>
           <Link to={'/business'} className='navbar-item'>
             Business
           </Link>
-        </div>
-
-        <div className='navbar-end'>
-          <div className='navbar-item'></div>
         </div>
       </div>
     </nav>
