@@ -24,7 +24,7 @@ This project is a news web app which allows users to read news from multiple gen
 
 This app is fully responsive so users can use it in various devices i.e. moblie phones, tablets and desktop.
 
-Users can read short description of top headlines from a varity of geners like sports, politices, entertainment, global and technology with each containing 100+ page results.
+Users can read short description of top headlines from a variety of geners like sports, politices, entertainment, global and technology with each containing 100+ page results.
 
 I have used Bulma Framework with CSS for this project.
 
