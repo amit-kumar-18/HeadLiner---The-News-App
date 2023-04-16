@@ -20,7 +20,7 @@ function NavBar() {
   return (
     <nav className='navbar is-fixed-top ' role='navigation' aria-label='main navigation'>
       <div className='navbar-brand'>
-        <a className='navbar-item is-size-3 ' href='/' id='logo'>
+        <a className='navbar-item is-size-4 ' href='/' id='logo'>
           <img src={logo} alt='Headline Logo' className='logo__icon' />
           <span className='logo__text'>HeadLiner</span>
         </a>

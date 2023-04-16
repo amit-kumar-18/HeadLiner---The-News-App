@@ -27,12 +27,16 @@ const Footer = () => {
           </ul>
         </div>
         <hr />
-        <p className='has-text-black'>
-          powered by
-          <a href='https://newscatcherapi.com/' target='_blank'>
-            &lt;/newscatcher&gt;
-          </a>
-        </p>
+
+        <div className='footer__body has-text-centered'>
+          <p className='has-text-black '>
+            powered by
+            <a href='https://newscatcherapi.com/' target='_blank'>
+              &lt;/newscatcher&gt;
+            </a>
+          </p>
+          <small>&copy; HeadLiner {new Date().getFullYear()}</small>
+        </div>
       </div>
     </footer>
   )

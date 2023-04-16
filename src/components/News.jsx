@@ -5,7 +5,7 @@ import Pagination from './Pagination'
 import Spinner from './Spinner'
 import PropTypes from 'prop-types'
 
-function News({ country = 'IN', category = 'world', pageSize = 10, setTopLoading, apiKey }) {
+function News({ country = 'IN', category = 'world', pageSize = 10, setTopLoading }) {
   const [articles, setArticle] = useState([])
   const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(false)
@@ -16,7 +16,7 @@ function News({ country = 'IN', category = 'world', pageSize = 10, setTopLoading
     const url = `https://api.newscatcherapi.com/v2/latest_headlines?countries=${country}&lang=en&page_size=${pageSize}&page=${page}&topic=${category}`
     const res = await fetch(url, {
       headers: {
-        'x-api-key': apiKey,
+        'x-api-key': import.meta.env.VITE_apiKey,
       },
     })
     const data = await res.json()
@@ -37,10 +37,7 @@ function News({ country = 'IN', category = 'world', pageSize = 10, setTopLoading
   return (
     <main>
       <section className='top-heading'>
-        <h1>
-          {'HeadLiner - '}
-          {category == 'general' ? 'Top Headlines' : `Top ${capitalize(category)} Headlines`}
-        </h1>
+        <h1>{category == 'general' ? 'Top Headlines' : `Top ${capitalize(category)} Headlines`}</h1>
       </section>
 
       <section

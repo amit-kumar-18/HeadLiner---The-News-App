@@ -2,7 +2,6 @@ import { useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import LoadingBar from 'react-top-loading-bar'
 import Footer from './components/Footer'
-
 import NavBar from './components/Navbar'
 import News from './components/News'
 import ScrollBtn from './components/ScrollBtn'
@@ -11,7 +10,6 @@ function App() {
   const country = 'IN'
   const pageSize = 12
   const [topLoading, setTopLoading] = useState(10)
-  const apiKey = import.meta.env.VITE_apiKey
 
   return (
     <>
@@ -25,7 +23,6 @@ function App() {
             path='/'
             element={
               <News
-                apiKey={apiKey}
                 setTopLoading={setTopLoading}
                 key='general'
                 country={country}
@@ -39,7 +36,6 @@ function App() {
             path='/entertainment'
             element={
               <News
-                apiKey={apiKey}
                 setTopLoading={setTopLoading}
                 key='entertainment'
                 country={country}
@@ -53,7 +49,6 @@ function App() {
             path='/tech'
             element={
               <News
-                apiKey={apiKey}
                 setTopLoading={setTopLoading}
                 key='tech'
                 country={country}
@@ -67,7 +62,6 @@ function App() {
             path='/politics'
             element={
               <News
-                apiKey={apiKey}
                 setTopLoading={setTopLoading}
                 key='politics'
                 country={country}
@@ -81,7 +75,6 @@ function App() {
             path='/sport'
             element={
               <News
-                apiKey={apiKey}
                 setTopLoading={setTopLoading}
                 key='sport'
                 country={country}
@@ -95,7 +88,6 @@ function App() {
             path='/business'
             element={
               <News
-                apiKey={apiKey}
                 setTopLoading={setTopLoading}
                 key='business'
                 country={country}
