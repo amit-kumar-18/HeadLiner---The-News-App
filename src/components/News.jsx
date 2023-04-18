@@ -16,7 +16,7 @@ function News({ country = 'IN', category = 'world', pageSize = 10, setTopLoading
     const url = `https://api.newscatcherapi.com/v2/latest_headlines?countries=${country}&lang=en&page_size=${pageSize}&page=${page}&topic=${category}`
     const res = await fetch(url, {
       headers: {
-        'x-api-key': import.meta.env.VITE_apiKey,
+        'x-api-key': 'p5zIHJwWGFPnErzD6VivlB6FFj6TWL6te2QnsaXCjng',
       },
     })
     const data = await res.json()
